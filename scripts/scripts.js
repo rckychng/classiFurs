@@ -1,20 +1,28 @@
 const myApp = {};
 
-myApp.getRandom = function() {
-    return $.ajax({
-        url: "http://api.petfinder.com/pet.getRandom",
-        key: "7e75b95b8a618a9f8925a252ed7dfbf5",
-        dataType: "json",
+myApp.petFind = function() {
+    $.ajax({
+        url: "http://api.petfinder.com/pet.find",
         method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-     });
+        jsonp: "callback",
+        dataType: "jsonp",
+        data: {
+            key: "7e75b95b8a618a9f8925a252ed7dfbf5",
+            format: "json",
+            location: "Toronto, Ontario, Canada",
+            animal: "cat",
+            output: "basic"
+            
+        }
+    })
+    .then((response) => {
+        const pets = response.petfinder.pets.pet;
+        console.log(pets);
+    });
 },
 
 myApp.init = function () {
-    myApp.getRandom();
+    myApp.petFind();
 };
 
 $(function () {
