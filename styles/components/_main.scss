@@ -1,0 +1,11 @@
+.entries {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    &__post {
+        width: 24%;
+        height: 300px;
+        background-color: salmon;
+
+    }
+}

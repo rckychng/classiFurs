@@ -1,0 +1,33 @@
+.header {
+    margin-bottom: 50px;
+    &__main {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        &::before {
+            content: '';
+            width: 100%;
+            border-bottom: 2.5px solid black;
+            position: absolute;
+            bottom: 0;
+        }
+        &::after {
+            content: '';
+            width: 100%;
+            border-bottom: 5px solid black;
+            position: absolute;
+            bottom: -10px;
+        }
+    }
+    &__text {
+        width: 65%;
+    }
+    &__forms {
+        width: 35%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+    }
+}
