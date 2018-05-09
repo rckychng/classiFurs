@@ -196,16 +196,13 @@ h1 {
       position: absolute;
       bottom: -10px; }
   .header__text {
-    width: 65%; }
+    width: 50%; }
   .header__forms {
-    width: 35%;
+    width: 50%; }
+  .header__form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-end; }
