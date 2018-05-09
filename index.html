@@ -8,12 +8,53 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <h1>classiFurs</h1>
+    <header class="header">
+        <div class="wrapper">
+            <div class="header__main">
+                <div class="header__text">
+                    <h1 class="header__title">classiFurs</h1>
+                </div>
+                <div class="header__forms">
+                    <form class="header__pets" action="">
+                        <label for="header__pet" class="visuallyhidden">Pets</label>
+                        <select name="header__pet" id="header__pet">
+                            <option value="dog">Dogs</option>
+                            <option value="cat">Cats</option>
+                        </select>
+                    </form>
+                    <form class="header__gender" action="">
+                        <label for="header__sex" class="visuallyhidden">Gender</label>
+                        <select name="header__sex" id="header__sex">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </form>
+                    <form class="header__age" action="">
+                        <label for="header__maturity" class="visuallyhidden">Age</label>
+                        <select name="header__maturity" id="header__maturity">
+                            <option value="baby">Baby</option>
+                            <option value="young">Young</option>
+                            <option value="adult">Adult</option>
+                            <option value="senior">Senior</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="entries wrapper">
+            <div class="entries__post"></div>
+            <div class="entries__post"></div>
+            <div class="entries__post"></div>
+            <div class="entries__post"></div>
+        </section>
+    </main>
     
     
     <!-- SCRIPTS STARTS -->
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
-    <script src="scripts.js"></script>
+    <script src="scripts/scripts.js"></script>
     <!-- SCRIPTS ENDS -->
 
 </body>
