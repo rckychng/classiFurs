@@ -18,24 +18,37 @@ myApp.petFind = function() {
     .then((response) => {
         const pets = response.petfinder.pets.pet;
         // console.log(pets);
-        pets.forEach(pet => console.log(pet.name.$t, pet.age.$t));
+        // pets.forEach(pet => console.log(pet.name.$t, pet.age.$t, pet.sex.$t, pet.contact.city.$t, pet.media.photos.photo[0]));
+        myApp.displayPets(pets);
     });
 },
 
-// myApp.displayPets = function(pet) {
-//     $("#pet").empty();
-//     pet.forEach((petResult) => {
-//         const $name = $("<h2>").text(petResult.age[0]);
-//         const $image = ;
-//         const $sex = ;
-//         const $age = ;
-//         const $location = ;
-//     });
-// }
+myApp.displayPets = function(pet) {
+    $("#pet").empty();
+    pet.forEach((pet) => {
+        const $name = $('<h2>').text(pet.name.$t);
+        const $image = $('<img>').attr('src', pet.media.photos.photo[0]);
+        const $sex = $('<h3>').text(pet.sex.$t);
+        const $age = $('<h3>').text(pet.age.$t);
+        const $location = $('<h3>').text(pet.contact.city.$t);
+        const $petContainer = $('<div>').append($name, $image, $sex, $age, $location);
+        $('#pet').append($petContainer);
+    });
+}
 
+myApp.events = function() {
+        $('#header__pet').on('submit', function(e) {
+            e.preventDefault();
+            const selectedPet = $(this).val();
+            console.log(selectedPet);
+            // app.petFind(selectedPet);
+        });
+    
+}
 
 myApp.init = function () {
     myApp.petFind();
+    myApp.events();
 };
 
 $(function () {
