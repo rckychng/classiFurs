@@ -22,12 +22,13 @@
         }
     }
     &__text {
-        width: 65%;
+        width: 50%;
     }
     &__forms {
-        width: 35%;
+        width: 50%;
+    }
+    &__form {
         display: flex;
-        flex-flow: row nowrap;
         justify-content: flex-end;
     }
 }

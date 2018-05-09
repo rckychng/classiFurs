@@ -17,9 +17,22 @@ myApp.petFind = function() {
     })
     .then((response) => {
         const pets = response.petfinder.pets.pet;
-        console.log(pets);
+        // console.log(pets);
+        pets.forEach(pet => console.log(pet.name.$t, pet.age.$t));
     });
 },
+
+// myApp.displayPets = function(pet) {
+//     $("#pet").empty();
+//     pet.forEach((petResult) => {
+//         const $name = $("<h2>").text(petResult.age[0]);
+//         const $image = ;
+//         const $sex = ;
+//         const $age = ;
+//         const $location = ;
+//     });
+// }
+
 
 myApp.init = function () {
     myApp.petFind();
