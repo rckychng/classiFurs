@@ -4,8 +4,33 @@
     justify-content: space-between;
     &__post {
         width: 24%;
-        height: 300px;
-        background-color: salmon;
-
+        margin-bottom: 20px;
+    }
+    &__name-header {
+        background-color: black;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__name {
+        color: white;
+        font-family: sans-serif;
+        text-transform: uppercase;
+    }
+    &__picture {
+        width: 100%;
+        height: 200px;
+    }
+    &__image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        filter: grayscale(100%);
+    }
+    &__details {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
     }
 }
