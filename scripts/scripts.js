@@ -47,6 +47,14 @@ myApp.displayPets = function(pet) {
     });
 };
 
+myApp.displayProfile = function(pet) {
+    // $('#pet').empty();
+    pet.forEach((pet) => {
+        const $petName = $('<h2 class="entries__name">').text(pet.name.$t);
+
+    });
+}
+
 myApp.events = function() {
     $('#header__submit').on('click', function(e) {
         e.preventDefault();
