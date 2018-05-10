@@ -14,7 +14,7 @@ myApp.petFind = function(animal,sex,age,location) {
             age: age,
             location: location,
             output: "basic",
-            count: 16
+            count: 15
         }
     })
     .then((response) => {
@@ -29,7 +29,7 @@ myApp.petFind = function(animal,sex,age,location) {
 };
 
 myApp.displayPets = function(pet) {
-    // $("#pet").empty();
+    $("#pet").empty();
     pet.forEach((pet) => {
         const $petName = $('<h2 class="entries__name">').text(pet.name.$t);
         const $petNameContainer = $('<div class="entries__name-header">').append($petName);
@@ -39,7 +39,10 @@ myApp.displayPets = function(pet) {
         const $petAge = $('<h3 class="entries__detail">').text(pet.age.$t);
         const $petLocation = $('<h3 class="entries__detail">').text(pet.contact.city.$t);
         const $petDetailContainer = $('<div class="entries__details">').append($petSex, $petAge, $petLocation);
-        const $petContainer = $('<div class="entries__post">').append($petNameContainer, $petImageContainer, $petDetailContainer);
+        const $petDescription = $('<p class="entries__text">').text(pet.description.$t);
+        const $petDescriptionContainer = $('<div class"entries__passage">').append($petDescription);
+        const $petContainer = $('<div class="entries__post">').append($petNameContainer, $petImageContainer, $petDetailContainer, $petDescriptionContainer);
+
         $('#pet').append($petContainer);
     });
 };
@@ -51,14 +54,17 @@ myApp.events = function() {
         const selectedSex = $('#header__sex').val();
         const selectedMaturity = $('#header__maturity').val();
         const location = $('#header__location').val();
-        const userInput = [selectedPet, selectedSex, selectedMaturity, location];
+        // const userInput = selectedPet, selectedSex, selectedMaturity, location};
+        myApp.petFind(selectedPet, selectedSex, selectedMaturity, location);
         console.log(userInput);
     });
     
 };
 
 myApp.init = function () {
-    myApp.petFind("cat","","","Toronto, Ontario, Canada");
+    // myApp.petFind("dog","","","Toronto, Ontario, Canada");
+    // myApp.petFind("userInput");
+
     myApp.events();
 };
 

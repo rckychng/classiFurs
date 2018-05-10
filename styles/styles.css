@@ -145,10 +145,12 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   clip: rect(0 0 0);
   overflow: hidden; }
 
-.wrapper {
-  max-width: 1280px;
-  width: 75%;
-  margin: 0 auto; }
+body {
+  background-image: url(./assets/paper.png); }
+  body .wrapper {
+    max-width: 1280px;
+    width: 75%;
+    margin: 0 auto 10rem auto; }
 
 html {
   font-size: 62.5%; }
@@ -169,7 +171,8 @@ h1 {
   line-height: 1; }
 
 .header {
-  margin-bottom: 50px; }
+  padding-top: 10rem;
+  margin-bottom: 0; }
   .header__main {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -210,19 +213,11 @@ h1 {
     justify-content: flex-end; }
 
 .entries {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between; }
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem; }
   .entries__post {
-    width: 24%;
-    margin-bottom: 20px; }
+    border: 2px solid black; }
   .entries__name-header {
     background-color: black;
     height: 40px;
@@ -234,14 +229,17 @@ h1 {
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center; }
+    align-items: center;
+    overflow: hidden; }
   .entries__name {
-    color: white;
-    font-family: sans-serif;
-    text-transform: uppercase; }
+    font-family: 'Vollkorn', serif;
+    font-size: calc(1rem + 1vw);
+    font-weight: 300;
+    text-transform: uppercase;
+    color: white; }
   .entries__picture {
     width: 100%;
-    height: 200px; }
+    height: 300px; }
   .entries__image {
     -o-object-fit: cover;
     object-fit: cover;
@@ -250,6 +248,7 @@ h1 {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%); }
   .entries__details {
+    margin: 0.5rem 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -257,6 +256,13 @@ h1 {
     -webkit-box-direction: normal;
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between; }
+    font-size: calc(0.5rem + 0.5vw);
+    -ms-flex-pack: distribute;
+    justify-content: space-around; }
+  .entries__text {
+    font-size: calc(0.5rem + 0.7vw);
+    text-align: justify;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    height: 100px; }
