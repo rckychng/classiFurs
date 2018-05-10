@@ -154,7 +154,7 @@ html {
   font-size: 62.5%; }
 
 body {
-  font-family: serif; }
+  font-family: 'Vollkorn', serif; }
 
 h1,
 h2,
@@ -164,6 +164,7 @@ p {
   color: black; }
 
 h1 {
+  font-family: 'Playfair Display', serif;
   font-size: 7.2rem; }
 
 .header {
