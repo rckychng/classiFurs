@@ -14,16 +14,23 @@ myApp.petFind = function(animal,sex,age,location) {
             age: age,
             location: location,
             output: "basic",
-            count: 15
+            count: 3
         }
     })
     .then((response) => {
         const pets = response.petfinder.pets.pet;
+        myApp.allPets = pets;
         // console.log(pets);
-        pets.forEach((pet) => {
-            console.log(pet);
-        });
-        // pets.forEach(pet => console.log(pet.name.$t, pet.age.$t, pet.sex.$t, pet.contact.city.$t, pet.media.photos.photo[0]));
+        // pets.forEach((pet) => {
+            // console.log(pet);
+        // });
+        //  store all pets onto property on app object.
+        //  when building html page, add as a data prop specific id for pets
+        //  on click grab that value with that value filter pets within pet array.
+        //  display pet in modal
+
+
+
         myApp.displayPets(pets);
     });
 };
@@ -35,25 +42,10 @@ myApp.displayPets = function(pet) {
         const $petNameContainer = $('<div class="entries__name-header">').append($petName);
         const $petImage = $('<img class="entries__image">').attr('src', pet.media.photos.photo[2].$t);
         const $petImageContainer = $('<div class="entries__picture">').append($petImage);
-        // const $petSex = $('<h3 class="entries__detail">').text(pet.sex.$t);
-        // const $petAge = $('<h3 class="entries__detail">').text(pet.age.$t);
-        // const $petLocation = $('<h3 class="entries__detail">').text(pet.contact.city.$t);
-        // const $petDetailContainer = $('<div class="entries__details">').append($petSex, $petAge, $petLocation);
-        // const $petDescription = $('<p class="entries__text">').text(pet.description.$t);
-        // const $petDescriptionContainer = $('<div class"entries__passage">').append($petDescription);
-        const $petContainer = $('<div class="entries__post">').append($petNameContainer, $petImageContainer/* , $petDetailContainer, $petDescriptionContainer */);
-
+        const $petContainer = $('<div class="entries__post">').append($petNameContainer, $petImageContainer);
         $('#pet').append($petContainer);
     });
 };
-
-myApp.displayProfile = function(pet) {
-    // $('#pet').empty();
-    pet.forEach((pet) => {
-        const $petName = $('<h2 class="entries__name">').text(pet.name.$t);
-
-    });
-}
 
 myApp.events = function() {
     $('#header__submit').on('click', function(e) {
@@ -62,17 +54,14 @@ myApp.events = function() {
         const selectedSex = $('#header__sex').val();
         const selectedMaturity = $('#header__maturity').val();
         const location = $('#header__location').val();
-        // const userInput = selectedPet, selectedSex, selectedMaturity, location};
         myApp.petFind(selectedPet, selectedSex, selectedMaturity, location);
-        // console.log(userInput);
+    });  
+    $('.entries').on('click', '.entries__post', function () {
+            console.log(this);
     });
-    
 };
 
 myApp.init = function () {
-    // myApp.petFind("dog","","","Toronto, Ontario, Canada");
-    // myApp.petFind("userInput");
-
     myApp.events();
 };
 
