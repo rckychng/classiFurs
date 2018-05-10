@@ -4,21 +4,21 @@
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-end;
         position: relative;
         &::before {
             content: '';
             width: 100%;
             border-bottom: 2.5px solid black;
             position: absolute;
-            bottom: 0;
+            bottom: -10px;
         }
         &::after {
             content: '';
             width: 100%;
             border-bottom: 5px solid black;
             position: absolute;
-            bottom: -10px;
+            bottom: -20px;
         }
     }
     &__text {
