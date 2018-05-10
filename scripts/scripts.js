@@ -35,13 +35,13 @@ myApp.displayPets = function(pet) {
         const $petNameContainer = $('<div class="entries__name-header">').append($petName);
         const $petImage = $('<img class="entries__image">').attr('src', pet.media.photos.photo[2].$t);
         const $petImageContainer = $('<div class="entries__picture">').append($petImage);
-        const $petSex = $('<h3 class="entries__detail">').text(pet.sex.$t);
-        const $petAge = $('<h3 class="entries__detail">').text(pet.age.$t);
-        const $petLocation = $('<h3 class="entries__detail">').text(pet.contact.city.$t);
-        const $petDetailContainer = $('<div class="entries__details">').append($petSex, $petAge, $petLocation);
-        const $petDescription = $('<p class="entries__text">').text(pet.description.$t);
-        const $petDescriptionContainer = $('<div class"entries__passage">').append($petDescription);
-        const $petContainer = $('<div class="entries__post">').append($petNameContainer, $petImageContainer, $petDetailContainer, $petDescriptionContainer);
+        // const $petSex = $('<h3 class="entries__detail">').text(pet.sex.$t);
+        // const $petAge = $('<h3 class="entries__detail">').text(pet.age.$t);
+        // const $petLocation = $('<h3 class="entries__detail">').text(pet.contact.city.$t);
+        // const $petDetailContainer = $('<div class="entries__details">').append($petSex, $petAge, $petLocation);
+        // const $petDescription = $('<p class="entries__text">').text(pet.description.$t);
+        // const $petDescriptionContainer = $('<div class"entries__passage">').append($petDescription);
+        const $petContainer = $('<div class="entries__post">').append($petNameContainer, $petImageContainer/* , $petDetailContainer, $petDescriptionContainer */);
 
         $('#pet').append($petContainer);
     });
@@ -56,7 +56,7 @@ myApp.events = function() {
         const location = $('#header__location').val();
         // const userInput = selectedPet, selectedSex, selectedMaturity, location};
         myApp.petFind(selectedPet, selectedSex, selectedMaturity, location);
-        console.log(userInput);
+        // console.log(userInput);
     });
     
 };
