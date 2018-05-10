@@ -37,11 +37,14 @@ myApp.displayPets = function(pet) {
 }
 
 myApp.events = function() {
-        $('#header__pet').on('submit', function(e) {
+        $('#header__submit').on('click', function(e) {
             e.preventDefault();
-            const selectedPet = $(this).val();
-            console.log(selectedPet);
-            // app.petFind(selectedPet);
+            const selectedPet = $('#header__pet').val();
+            const selectedSex = $('#header__sex').val();
+            const selectedMaturity = $('#header__maturity').val();
+            const location = $('#header__location').val();
+            const userInput = [selectedPet, selectedSex, selectedMaturity, location];
+            console.log(userInput);
         });
     
 }
