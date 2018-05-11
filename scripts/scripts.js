@@ -28,23 +28,34 @@ myApp.petFind = function(animal,sex,age,location) {
         //  when building html page, add as a data prop specific id for pets
         //  on click grab that value with that value filter pets within pet array.
         //  display pet in modal
-
-
-
         myApp.displayPets(pets);
     });
 };
 
-myApp.displayPets = function(pet) {
+myApp.displayPets = function(pets) {
     $("#pet").empty();
-    pet.forEach((pet) => {
-        const $petName = $('<h2 class="entries__name">').text(pet.name.$t);
+    for (let i = 0; i < pets.length; i++) {
+        const $petName = $('<h2 class="entries__name">').text(pets[i].name.$t);
         const $petNameContainer = $('<div class="entries__name-header">').append($petName);
-        const $petImage = $('<img class="entries__image">').attr('src', pet.media.photos.photo[2].$t);
+        const $petImage = $('<img class="entries__image">').attr('src', pets[i].media.photos.photo[2].$t);
         const $petImageContainer = $('<div class="entries__picture">').append($petImage);
-        const $petContainer = $('<div class="entries__post">').append($petNameContainer, $petImageContainer);
+        // const $petSex = $('<h3 class="entries__detail">').text(pets[i].sex.$t);
+        // const $petAge = $('<h3 class="entries__detail">').text(pets[i].age.$t);
+        // const $petLocation = $('<h3 class="entries__detail">').text(pets[i].contact.city.$t);
+        // const $petDetailContainer = $('<div class="entries__details">').append($petSex, $petAge, $petLocation);
+        // const $petDescription = $('<p class="entries__text">').text(pets[i].description.$t);
+        // const $petDescriptionContainer = $('<div class"entries__passage">').append($petDescription);
+        const $petContainer = $(`<div id = "${i}" class="entries__post">`).append($petNameContainer, $petImageContainer, /* $petDetailContainer, $petDescriptionContainer */ );
+
         $('#pet').append($petContainer);
-    });
+    };
+};
+
+myApp.displayProfile = function(pet) {
+    const $petSex = $('<h3>').text(pet.sex.$t);
+    const $petAge = $('<h3>').text(pet.age.$t);
+    const $petTextContainer = $('<div>').append($petSex, $petAge);
+    $('#profile').append($petTextContainer);
 };
 
 myApp.events = function() {
@@ -57,7 +68,11 @@ myApp.events = function() {
         myApp.petFind(selectedPet, selectedSex, selectedMaturity, location);
     });  
     $('.entries').on('click', '.entries__post', function () {
-            console.log(this);
+        const petIndex = this.id;
+        // console.log(petIndex);
+        // console.log(myApp.allPets[petIndex])
+        myApp.displayProfile(myApp.allPets[petIndex]);
+
     });
 };
 
