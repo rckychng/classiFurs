@@ -52,9 +52,18 @@ myApp.displayPets = function(pets) {
 };
 
 myApp.displayProfile = function(pet) {
+    $("#profile").empty();
     const $petSex = $('<h3>').text(pet.sex.$t);
     const $petAge = $('<h3>').text(pet.age.$t);
-    const $petTextContainer = $('<div>').append($petSex, $petAge);
+    const $petBreed = $('<h3>').text(pet.breeds.breed.$t);
+    const $address = $('<h3>').text(pet.contact.address1.$t);
+    const $location = $('<h3>').text(pet.contact.city.$t);
+    const $postalCode = $('<h3>').text(pet.contact.zip.$t);
+    const $phone = $('<h3>').text(pet.contact.phone.$t);
+    const $shelter = $('<h3>').text(pet.shelterId.$t);
+    const $description = $('<h3>').text(pet.description.$t);
+    const $petTextContainer = $('<div>').append($petSex, $petAge, $petBreed, $address, $location, $postalCode, $phone, $shelter, $description);
+
     $('#profile').append($petTextContainer);
 };
 

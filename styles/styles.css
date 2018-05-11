@@ -150,7 +150,7 @@ body {
   body .wrapper {
     max-width: 1280px;
     width: 75%;
-    margin: 0 auto 3rem auto; }
+    margin: 0 auto; }
 
 html {
   font-size: 62.5%; }
