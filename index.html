@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>classiFurs</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Vollkorn:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <header class="header">
+    <header class="header" id="header">
         <div class="wrapper">
             <div class="header__main">
                 <div class="header__text">
@@ -47,7 +49,13 @@
     </header>
     <main>
         <div class="entries wrapper" id="pet"></div>
-        <div class="profile" id="profile"></div>
+        <div class="displayPet">
+            <div class="closeBtn">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="profile" id="profile">
+            </div>
+        </div>
     </main>
 
     <!-- SCRIPTS STARTS -->

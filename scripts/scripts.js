@@ -14,7 +14,7 @@ myApp.petFind = function(animal,sex,age,location) {
             age: age,
             location: location,
             output: "basic",
-            count: 3
+            count: 12
         }
     })
     .then((response) => {
@@ -34,6 +34,7 @@ myApp.petFind = function(animal,sex,age,location) {
 
 myApp.displayPets = function(pets) {
     $("#pet").empty();
+    $("#profile").hide();
     for (let i = 0; i < pets.length; i++) {
         const $petName = $('<h2 class="entries__name">').text(pets[i].name.$t);
         const $petNameContainer = $('<div class="entries__name-header">').append($petName);
@@ -53,6 +54,10 @@ myApp.displayPets = function(pets) {
 
 myApp.displayProfile = function(pet) {
     $("#profile").empty();
+    $("#profile").fadeIn();
+    $("#header").hide();
+    const $petName = $('<h3>').text(pet.name.$t);
+    const $petImage = $('<img class="petImage">').attr('src', pet.media.photos.photo[2].$t);
     const $petSex = $('<h3>').text(pet.sex.$t);
     const $petAge = $('<h3>').text(pet.age.$t);
     const $petBreed = $('<h3>').text(pet.breeds.breed.$t);
@@ -62,9 +67,10 @@ myApp.displayProfile = function(pet) {
     const $phone = $('<h3>').text(pet.contact.phone.$t);
     const $shelter = $('<h3>').text(pet.shelterId.$t);
     const $description = $('<h3>').text(pet.description.$t);
-    const $petTextContainer = $('<div>').append($petSex, $petAge, $petBreed, $address, $location, $postalCode, $phone, $shelter, $description);
+    const $profileLeft = $('<div class="leftSide">').append($petName, $petImage, $petSex, $petAge, $petBreed, $address, $location, $postalCode, $phone, $shelter);
+    const $profileRight = $('<div class="rightSide">').append( $description);
 
-    $('#profile').append($petTextContainer);
+    $('#profile').append($profileLeft, $profileRight);
 };
 
 myApp.events = function() {
@@ -83,6 +89,14 @@ myApp.events = function() {
         myApp.displayProfile(myApp.allPets[petIndex]);
 
     });
+
+    $('.closeBtn').on('click', function(){
+        $("#displayPet").hide();
+        $("#profile").hide();
+        $("#header").fadeIn();
+
+    });
+
 };
 
 myApp.init = function () {
