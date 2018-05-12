@@ -5,57 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>classiFurs</title>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Vollkorn:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <header class="header" id="header">
-        <div class="wrapper">
+    <header>
+        <div class="header wrapper">
             <div class="header__main">
                 <div class="header__text">
                     <h1 class="header__title">classiFurs</h1>
+                    <h3 class="header__subtitle">Classifieds for pet adoption</h3>
                 </div>
                 <div class="header__forms">
                     <form class="header__form" action="">
                         <label for="header__pet" class="visuallyhidden">Pets</label>
-                        <select name="header__pet" id="header__pet">
+                        <!-- <input type="text" name="header__pet" id="header__pet" class="header__pet" placeholder="Dog or Cat"> -->
+                        <select name="header__pet" id="header__pet" class="header__pet">
                             <option value="dog">Dogs</option>
                             <option value="cat">Cats</option>
                         </select>
+                        
                         <label for="header__sex" class="visuallyhidden">Gender</label>
-                        <select name="header__sex" id="header__sex">
+                        <!-- <input type="text" name="header__sex" id="header__sex" class="header__sex" placeholder="M or F"> -->
+                        <select name="header__sex" id="header__sex" class="header__sex">
                             <option value="">Any</option>
                             <option value="M">Male</option>
                             <option value="F">Female</option>
                         </select>
+                        
                         <label for="header__maturity" class="visuallyhidden">Age</label>
-                        <select name="header__maturity" id="header__maturity">
+                        <!-- <input type="text" name="header__maturity" id="header__maturity" class="header__maturity" placeholder="Baby, Young, Adult or Old"> -->
+                        <select name="header__maturity" id="header__maturity" class="header__maturity">
                             <option value="">Any</option>
                             <option value="Baby">Baby</option>
                             <option value="Young">Young</option>
                             <option value="Adult">Adult</option>
                             <option value="Senior">Senior</option>
                         </select>
+                        
                         <label for="header__location" class="visuallyhidden">Location</label>
-                        <input type="text" name="header__location" id="header__location" placeholder="City, Province">
+                        <input type="text" name="header__location" id="header__location" class="header__location" placeholder="City, Province">
+                        
                         <label for="header__submit" class="visuallyhidden">Search</label>
-                        <input type="submit" id="header__submit" class="header__submit" value="Search">
+                        <input type="submit" id="header__submit" class="header__submit" value="Find">
                     </form>
                 </div>
             </div>
         </div>
     </header>
     <main>
-        <div class="entries wrapper" id="pet"></div>
-        <div class="displayPet">
-            <div class="closeBtn">
-                <i class="fas fa-times"></i>
-            </div>
-            <div class="profile" id="profile">
-            </div>
+        <div class="wrapper">
+            <div class="entries" id="entries"></div>
         </div>
+        <div class="profile" id="profile"></div>
     </main>
 
     <!-- SCRIPTS STARTS -->
@@ -65,3 +68,12 @@
 
 </body>
 </html>
+
+
+<!-- <div class="displayPet">
+    <div class="closeBtn">
+        <i class="fas fa-times"></i>
+    </div>
+    <div class="profile" id="profile">
+    </div>
+</div> -->

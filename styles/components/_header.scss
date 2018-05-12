@@ -1,12 +1,16 @@
-.header {
-    padding-top: 10rem;
-    margin-bottom: 0;
+header {
     position: fixed;
-    z-index: 10;
+    top: 25%;
+    left: 0;
     width: 100%;
-    background-image: url(./assets/paper.png);
-    background-size: contain;
+    height: 200px;
+    z-index: 5;
+    background: white;
+    display: flex;
+    align-items: center;
+}
 
+.header {
     &__main {
         display: flex;
         flex-flow: row nowrap;
@@ -16,26 +20,81 @@
         &::before {
             content: '';
             width: 100%;
-            border-bottom: 2.5px solid black;
-            position: absolute;
-            bottom: -10px;
-        }
-        &::after {
-            content: '';
-            width: 100%;
             border-bottom: 5px solid black;
             position: absolute;
             bottom: -20px;
         }
+        &::after {
+            content: '';
+            width: 100%;
+            border-bottom: 2.5px solid black;
+            position: absolute;
+            bottom: -30px;
+        }
     }
     &__text {
-        width: 50%;
+        width: 45%;
+    }
+    &__title {
+        margin-bottom: 10px;
+    }
+    &__subtitle {
+        font-family: sans-serif;
+        font-weight: 100;
+        text-transform: uppercase;
     }
     &__forms {
-        width: 50%;
+        width: 55%;
     }
     &__form {
         display: flex;
         justify-content: flex-end;
+    }
+    &__pet {
+        width: 17%;
+        margin-right: 15px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: 0;
+        color: grey;
+    }
+    &__sex {
+        width: 17%;
+        margin-right: 15px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: 0;
+        color: grey;
+    }
+    &__maturity {
+        width: 17%;
+        margin-right: 15px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: 0;
+        color: grey;
+    }
+    &__location {
+        width: 34%;
+        text-transform: capitalize;
+        margin-right: 15px;
+        font-size: 1.6rem;
+        border: 0;
+        color: grey;
+        &::placeholder {
+            text-transform: capitalize;
+            font-size: 1.6rem;
+        }
+    }
+    &__submit {
+        width: 15%;
+        background-color: black;
+        color: white;
+        border-radius: none;
+        border: 0;
+        font-size: 1.6rem;
     }
 }
