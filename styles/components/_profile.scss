@@ -1,0 +1,10 @@
+.profile {
+    display: flex;
+    background-color: salmon;
+    &__left {
+        width: 50%;
+    }
+    &__right {
+        width: 50%;
+    }
+}

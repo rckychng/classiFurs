@@ -272,3 +272,13 @@ h1 {
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     height: 100px; }
+
+.profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: salmon; }
+  .profile__left {
+    width: 50%; }
+  .profile__right {
+    width: 50%; }
