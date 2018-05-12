@@ -1,16 +1,11 @@
 .entries {
+    // z-index: 9;
     padding-top: 20rem;
     display: grid;
-    // flex-flow: row wrap;
-    // justify-content: space-between;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 1rem;
-    
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;  
     &__post {
-        // background-color: rgba(211,211,211,0.4);
         border: 2px solid black;
-        // width: 24%;
-        // margin-bottom: 20px;
     }
     &__name-header {
         background-color: black;
@@ -29,7 +24,7 @@
     }
     &__picture {
         width: 100%;
-        height: 300px;
+        height: 150px;
     }
     &__image {
         object-fit: cover;
