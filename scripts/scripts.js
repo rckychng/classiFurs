@@ -14,7 +14,7 @@ myApp.petFind = function(animal,sex,age,location) {
             age: age,
             location: location,
             output: "basic",
-            count: 16
+            count: 24
         }
     })
     .then((response) => {
@@ -39,8 +39,8 @@ myApp.petFindMore = function(animal, sex, age, location) {
             age: age,
             location: location,
             output: "basic",
-            count: 16,
-            offset: 16
+            count: 24,
+            offset: 24
         }
     })
         .then((response) => {

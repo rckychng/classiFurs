@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>classiFurs</title>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Montserrat:300,400,500,600" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
+    
+    <!-- HEADER STARTS -->
     <header>
         <div class="header wrapper">
             <div class="header__main">
@@ -20,14 +21,12 @@
                 <div class="header__forms">
                     <form class="header__form" action="">
                         <label for="header__pet" class="visuallyhidden">Pets</label>
-                        <!-- <input type="text" name="header__pet" id="header__pet" class="header__pet" placeholder="Dog or Cat"> -->
                         <select name="header__pet" id="header__pet" class="header__pet">
                             <option value="dog">Dogs</option>
                             <option value="cat">Cats</option>
                         </select>
                         
                         <label for="header__sex" class="visuallyhidden">Gender</label>
-                        <!-- <input type="text" name="header__sex" id="header__sex" class="header__sex" placeholder="M or F"> -->
                         <select name="header__sex" id="header__sex" class="header__sex">
                             <option value="">Any</option>
                             <option value="M">Male</option>
@@ -35,7 +34,6 @@
                         </select>
                         
                         <label for="header__maturity" class="visuallyhidden">Age</label>
-                        <!-- <input type="text" name="header__maturity" id="header__maturity" class="header__maturity" placeholder="Baby, Young, Adult or Old"> -->
                         <select name="header__maturity" id="header__maturity" class="header__maturity">
                             <option value="">Any</option>
                             <option value="Baby">Baby</option>
@@ -54,12 +52,16 @@
             </div>
         </div>
     </header>
+    <!-- HEADER ENDS -->
+
+    <!-- MAIN STARTS -->
     <main>
         <div class="wrapper">
             <div class="entries" id="entries"></div>
         </div>
         <div class="profile" id="profile"></div>
     </main>
+    <!-- MAIN ENDS -->
 
     <!-- SCRIPTS STARTS -->
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
@@ -68,12 +70,3 @@
 
 </body>
 </html>
-
-
-<!-- <div class="displayPet">
-    <div class="closeBtn">
-        <i class="fas fa-times"></i>
-    </div>
-    <div class="profile" id="profile">
-    </div>
-</div> -->
