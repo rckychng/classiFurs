@@ -121,11 +121,6 @@ header {
         &__title {
             margin-bottom: 10px;
         }
-        &__subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 100;
-            text-transform: uppercase;
-        }
         &__forms {
             width: 100%;
         }
@@ -182,7 +177,5 @@ header {
     header {
         top: 30%;
         height: 300px;
-    }
-    .header {
     }
 }
