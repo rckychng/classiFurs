@@ -506,6 +506,28 @@ main {
   .profile__right {
     width: 50%;
     overflow: scroll; }
+  .profile__sex {
+    display: block;
+    width: 50%;
+    text-align: center;
+    color: white;
+    background-color: black;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-right: 15px; }
+  .profile__age {
+    display: block;
+    width: 50%;
+    text-align: center;
+    color: white;
+    background-color: black;
+    font-weight: 400;
+    text-transform: uppercase; }
+  .profile__sex-age {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 10px; }
   .profile__breed {
     position: relative;
     margin-bottom: 20px; }

@@ -43,6 +43,29 @@
         width: 50%;
         overflow: scroll;
     }
+    &__sex {
+        display: block;
+        width: 50%;
+        text-align: center;
+        color: white;
+        background-color: black;
+        font-weight: 400;    
+        text-transform: uppercase;
+        margin-right: 15px;
+    }
+    &__age {
+        display: block;
+        width: 50%;
+        text-align: center;
+        color: white;
+        background-color: black;
+        font-weight: 400;         
+        text-transform: uppercase;   
+    }
+    &__sex-age {
+        display: flex;
+        margin-bottom: 10px;
+    }
     &__breed {
         position: relative;
         margin-bottom: 20px;

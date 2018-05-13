@@ -1,7 +1,7 @@
 const myApp = {};
 
 //this is the new global variable:
-myApp.offset = 0;
+myApp.offset = 24;
 
 myApp.petFind = function (animal, sex, age, location) {
     $.ajax({
@@ -18,7 +18,7 @@ myApp.petFind = function (animal, sex, age, location) {
             location: location,
             output: "basic",
             count: 24,
-            offset: myApp.offset
+            // offset: myApp.offset
         }
     })
         .then((response) => {
@@ -26,6 +26,31 @@ myApp.petFind = function (animal, sex, age, location) {
             console.log(pets);
             myApp.allPets = pets;
             myApp.displayPets(pets);
+        });
+};
+
+myApp.petFindMore = function (animal, sex, age, location) {
+    $.ajax({
+            url: "http://api.petfinder.com/pet.find",
+            method: "GET",
+            jsonp: "callback",
+            dataType: "jsonp",
+            data: {
+                key: "7e75b95b8a618a9f8925a252ed7dfbf5",
+                format: "json",
+                animal: animal,
+                sex: sex,
+                age: age,
+                location: location,
+                output: "basic",
+                count: 24,
+                offset: myApp.offset
+            }
+        })
+        .then((response) => {
+            const pets = response.petfinder.pets.pet;
+            myApp.allPets = pets;
+            myApp.displayMorePets(pets);
             //adding 24 to the offset variable so the next time it's run, it offsets correctly:
             myApp.offset = myApp.offset + 24;
         });
@@ -48,6 +73,17 @@ myApp.displayPets = function(pets) {
     };
 };
 
+myApp.displayMorePets = function (pets) {
+    for (let i = 0; i < pets.length; i++) {
+        const $petName = $('<h4 class="entries__name">').text(pets[i].name.$t);
+        const $petNameContainer = $('<div class="entries__name-container">').append($petName);
+        const $petImage = $('<img class="entries__image">').attr('src', pets[i].media.photos.photo[2].$t);
+        const $petImageContainer = $('<div class="entries__picture">').append($petImage);
+        const $petContainer = $(`<div id = "${i}" class="entries__post">`).append($petNameContainer, $petImageContainer);
+        $('#entries').append($petContainer);
+    };
+};
+
 myApp.displayProfile = function(pet) {
     $("#profile").empty();
     $("#profile").fadeIn();
@@ -55,6 +91,9 @@ myApp.displayProfile = function(pet) {
     const $petNameContainer = $('<div class="profile__name-container">').append($petName);
     const $petImage = $('<img class="profile__image">').attr('src', pet.media.photos.photo[2].$t);
     const $petImageContainer = $('<div class="profile__picture">').append($petImage);
+    const $petSex = $('<h4 class="profile__sex">').text(pet.sex.$t);
+    const $petAge = $('<h4 class="profile__age">').text(pet.age.$t);
+    const $petSexAgeContainer = $('<div class="profile__sex-age">').append($petSex, $petAge);
     const $petBreed = $('<h3 class="profile__breed">').text(pet.breeds.breed.$t);
     const $address = $('<h4>').text(pet.contact.address1.$t);
     const $location = $('<h4>').text(pet.contact.city.$t);
@@ -63,7 +102,7 @@ myApp.displayProfile = function(pet) {
     const $contactContainer = $('<div class="profile__contact">').append($address, $location, $postalCode, $phone);
     const $description = $('<p class="profile__description">').text(pet.description.$t);
     const $petTextContainer = $('<div class="profile__left">').append($petNameContainer, $petImageContainer);
-    const $descriptionContainer = $('<div class="profile__right">').append($petBreed, $contactContainer, $description);
+    const $descriptionContainer = $('<div class="profile__right">').append($petSexAgeContainer, $petBreed, $contactContainer, $description);
     $('#profile').append($petTextContainer, $descriptionContainer);
 };
 
@@ -73,13 +112,13 @@ myApp.displayProfile = function(pet) {
 
 myApp.addContent = function() {
     $(window).scroll(() => {
-        console.log($(window).scrollTop(), $(window).height(), $(document).height())
+        // console.log($(window).scrollTop(), $(window).height(), $(document).height())
         if ($(window).scrollTop() + $(window).height() === $(document).height()) {
             const selectedPet = $('#header__pet').val();
             const selectedSex = $('#header__sex').val();
             const selectedMaturity = $('#header__maturity').val();
             const location = $('#header__location').val();
-            myApp.petFind(selectedPet, selectedSex, selectedMaturity, location);
+            myApp.petFindMore(selectedPet, selectedSex, selectedMaturity, location);
         }
     });
 }
