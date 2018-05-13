@@ -1,12 +1,16 @@
-.header {
-    padding-top: 10rem;
-    margin-bottom: 0;
+header {
     position: fixed;
-    z-index: 10;
+    top: 30%;
+    left: 0;
     width: 100%;
-    background-image: url(./assets/paper.png);
-    background-size: contain;
+    height: 200px;
+    z-index: 5;
+    background-color: lightgrey;
+    display: flex;
+    align-items: center;
+}
 
+.header {
     &__main {
         display: flex;
         flex-flow: row nowrap;
@@ -16,26 +20,169 @@
         &::before {
             content: '';
             width: 100%;
-            border-bottom: 2.5px solid black;
-            position: absolute;
-            bottom: -10px;
-        }
-        &::after {
-            content: '';
-            width: 100%;
             border-bottom: 5px solid black;
             position: absolute;
             bottom: -20px;
         }
+        &::after {
+            content: '';
+            width: 100%;
+            border-bottom: 2.5px solid black;
+            position: absolute;
+            bottom: -30px;
+        }
     }
     &__text {
-        width: 50%;
+        width: 48%;
+    }
+    &__title {
+        margin-bottom: 10px;
+    }
+    &__subtitle {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 100;
+        text-transform: uppercase;
     }
     &__forms {
-        width: 50%;
+        width: 52%;
     }
     &__form {
         display: flex;
+        flex-flow: row nowrap;
         justify-content: flex-end;
+    }
+    &__pet {
+        width: 17%;
+        margin-right: 15px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: 0;
+        color: grey;
+    }
+    &__sex {
+        width: 17%;
+        margin-right: 15px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: 0;
+        color: grey;
+    }
+    &__maturity {
+        width: 17%;
+        margin-right: 15px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: 0;
+        color: grey;
+    }
+    &__location {
+        width: 34%;
+        text-transform: capitalize;
+        margin-right: 15px;
+        font-size: 1.6rem;
+        border: 0;
+        color: grey;
+        background-color: transparent;
+        &::placeholder {
+            text-transform: capitalize;
+            font-size: 1.6rem;
+        }
+    }
+    &__submit {
+        width: 15%;
+        background-color: black;
+        color: white;
+        border-radius: none;
+        border: 0;
+        font-size: 1.6rem;
+    }
+}
+
+
+// MEDIA QUERY
+
+@media (max-width: 1180px) {
+    header {
+        height: 250px;
+    }
+    .header {
+        &__main {
+            flex-flow: column nowrap;
+            align-items: center;
+        }
+        &__text {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        &__title {
+            margin-bottom: 10px;
+        }
+        &__subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 100;
+            text-transform: uppercase;
+        }
+        &__forms {
+            width: 100%;
+        }
+        &__pet {
+            margin-right: 25px;
+        }
+        &__sex {
+            margin-right: 25px;
+        }
+        &__maturity {
+            margin-right: 25px;
+        }
+        &__location {
+            margin-right: 25px;
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    header {
+        height: 300px;
+    }
+    .header {
+        &__form {
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+        &__pet {
+            width: 30%;
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+        &__sex {
+            width: 30%;
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+        &__maturity {
+            width: 30%;
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+        &__location {
+            width: 75%;
+            margin-right: 0;
+        }
+        &__submit {
+            width: 20%;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    header {
+        top: 30%;
+        height: 300px;
+    }
+    .header {
     }
 }

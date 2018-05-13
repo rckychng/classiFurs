@@ -1,10 +1,24 @@
-
 body {
-    background-image: url(./assets/paper.png);
-    .wrapper {
-        max-width: 1280px;
-        width: 75%;
-        margin: 0 auto;
+    background-color: lightgrey;
+}
 
-    }
+input, select {
+    height: 40px;
+}
+
+input {
+    padding-left: 10px;
+}
+
+select {
+    background-color: black;
+    background: url(/styles/assets/chevron-down.svg) right center no-repeat;
+    background-size: 15%;
+    font-size: 1.6rem;
+}
+
+.wrapper {
+    max-width: 1280px;
+    width: 75%;
+    margin: 0 auto;
 }
