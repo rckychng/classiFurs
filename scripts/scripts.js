@@ -2,13 +2,7 @@ const myApp = {};
 
 //this is the new global variable:
 myApp.offset = 0;
-
-    myApp.selectedPet = $('#header__pet').val();
-    myApp.selectedSex = $('#header__sex').val();
-    myApp.selectedMaturity = $('#header__maturity').val();
-    myApp.location = $('#header__location').val();
-
-const userInput = (myApp.selectedPet, myApp.selectedSex, myApp.selectedMaturity, myApp.location)
+myApp.allPets = [];
 
 myApp.petFind = function (animal, sex, age, location) {
     $.ajax({
@@ -31,12 +25,11 @@ myApp.petFind = function (animal, sex, age, location) {
     })
         .then((response) => {
             const pets = response.petfinder.pets.pet;
-            console.log(pets);
-            myApp.allPets = pets;
-            myApp.displayPets(pets);
+            myApp.allPets = myApp.allPets.concat(pets);
+            console.log(myApp.allPets);
+            myApp.displayPets(myApp.allPets);
             //adding 24 to the offset variable so the next time it's run, it offsets correctly
             myApp.offset = myApp.offset + 24;
-            console.log(response);
         });
 };
 
@@ -48,6 +41,7 @@ myApp.petFind = function (animal, sex, age, location) {
 myApp.displayPets = function(pets) {
     $("#entries").empty();
     for (let i = 0; i < pets.length; i++) {
+        console.log(pets[i]);
         const $petName = $('<h4 class="entries__name">').text(pets[i].name.$t);
         const $petNameContainer = $('<div class="entries__name-container">').append($petName);
         const $petImage = $('<img class="entries__image">').attr('src', pets[i].media.photos.photo[2].$t);
@@ -56,17 +50,6 @@ myApp.displayPets = function(pets) {
         $('#entries').append($petContainer);
     };
 };
-
-// myApp.displayMorePets = function (pets) {
-//     for (let i = 0; i < pets.length; i++) {
-//         const $petName = $('<h4 class="entries__name">').text(pets[i].name.$t);
-//         const $petNameContainer = $('<div class="entries__name-container">').append($petName);
-//         const $petImage = $('<img class="entries__image">').attr('src', pets[i].media.photos.photo[2].$t);
-//         const $petImageContainer = $('<div class="entries__picture">').append($petImage);
-//         const $petContainer = $(`<div id = "${i}" class="entries__post">`).append($petNameContainer, $petImageContainer);
-//         $('#entries').append($petContainer);
-//     };
-// };
 
 myApp.displayProfile = function(pet) {
     $("#profile").empty();
@@ -93,26 +76,27 @@ myApp.displayProfile = function(pet) {
 
 myApp.addContent = function() {
     $(window).scroll(() => {
-        console.log($(window).scrollTop(), $(window).height(), $(document).height())
+        console.log(myApp.allPets);
+        // console.log($(window).scrollTop(), $(window).height(), $(document).height())
         if ($(window).scrollTop() + $(window).height() === $(document).height()) {
             // console.log("bottom reached!");
-            // const selectedPet = $('#header__pet').val();
-            // const selectedSex = $('#header__sex').val();
-            // const selectedMaturity = $('#header__maturity').val();
-            // const location = $('#header__location').val();
-            myApp.petFind(userInput);
+            myApp.petFind(myApp.selectedPet, myApp.selectedSex, myApp.selectedMaturity, myApp.location);
+            // myApp.petFind(userInput);
         }
     });
 }
 
 myApp.events = function() {
     $('#header__submit').on('click', function(e) {
+        $("#entries").empty();
+        myApp.offset = 0;
+        myApp.allPets = [];
         e.preventDefault();
-        // const selectedPet = $('#header__pet').val();
-        // const selectedSex = $('#header__sex').val();
-        // const selectedMaturity = $('#header__maturity').val();
-        // const location = $('#header__location').val();
-        myApp.petFind(userInput);
+        myApp.selectedPet = $('#header__pet').val();
+        myApp.selectedSex = $('#header__sex').val();
+        myApp.selectedMaturity = $('#header__maturity').val();
+        myApp.location = $('#header__location').val();
+        myApp.petFind(myApp.selectedPet, myApp.selectedSex, myApp.selectedMaturity, myApp.location);
         $('header').animate({
             top: '0'
         }, 900);
