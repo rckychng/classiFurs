@@ -26,7 +26,7 @@ myApp.petFind = function (animal, sex, age, location) {
         .then((response) => {
             const pets = response.petfinder.pets.pet;
             myApp.allPets = myApp.allPets.concat(pets);
-            console.log(myApp.allPets);
+            // console.log(myApp.allPets);
             myApp.displayPets(myApp.allPets);
             //adding 24 to the offset variable so the next time it's run, it offsets correctly
             myApp.offset = myApp.offset + 24;
@@ -41,7 +41,7 @@ myApp.petFind = function (animal, sex, age, location) {
 myApp.displayPets = function(pets) {
     $("#entries").empty();
     for (let i = 0; i < pets.length; i++) {
-        console.log(pets[i]);
+        // console.log(pets[i]);
         const $petName = $('<h4 class="entries__name">').text(pets[i].name.$t);
         const $petNameContainer = $('<div class="entries__name-container">').append($petName);
         const $petImage = $('<img class="entries__image">').attr('src', pets[i].media.photos.photo[2].$t);
@@ -76,7 +76,7 @@ myApp.displayProfile = function(pet) {
 
 myApp.addContent = function() {
     $(window).scroll(() => {
-        console.log(myApp.allPets);
+        // console.log(myApp.allPets);
         // console.log($(window).scrollTop(), $(window).height(), $(document).height())
         if ($(window).scrollTop() + $(window).height() === $(document).height()) {
             // console.log("bottom reached!");
