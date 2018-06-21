@@ -436,7 +436,7 @@ main {
     color: white; }
   .entries__picture {
     width: 100%;
-    height: 150px; }
+    height: 200px; }
   .entries__image {
     -o-object-fit: cover;
     object-fit: cover;
